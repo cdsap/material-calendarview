@@ -9,6 +9,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
 import android.widget.TextView;
 
 import com.prolificinteractive.materialcalendarview.CalendarDay;
@@ -65,12 +66,15 @@ public class DialogsActivity extends AppCompatActivity {
 
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+            getDialog().getWindow().requestFeature(Window.FEATURE_NO_TITLE);
             return inflater.inflate(R.layout.dialog_basic, container, false);
+
         }
 
         @Override
         public void onViewCreated(View view, Bundle savedInstanceState) {
             super.onViewCreated(view, savedInstanceState);
+
 
             textView = (TextView) view.findViewById(R.id.textView);
 
@@ -81,7 +85,7 @@ public class DialogsActivity extends AppCompatActivity {
 
         @Override
         public void onDateChanged(MaterialCalendarView widget, CalendarDay date) {
-            textView.setText(FORMATTER.format(date.getDate()));
+            //    textView.setText(FORMATTER.format(date.getDate()));
         }
     }
 }
